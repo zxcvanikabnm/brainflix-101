@@ -1,0 +1,23 @@
+// optional global styles
+@use "./variables" as v;
+@use "./mixins" as m;
+@use "./reset";
+@use "./typography";
+
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: v.$font-regular;
+    font-size: 16px;
+
+    @include m.respond-to(tablet) {
+        background-color: red;
+    }
+    @include m.respond-to(desktop) {
+        background-color: blue;
+    }
+    @include m.respond-to(wide) {
+        background-color: green;
+    }
+}
+
