@@ -1,7 +1,7 @@
 import React from "react";
 import "./MainVideo.scss";
 
-export default function Main({ mainVideo }) {
+export default function MainVideo({ mainVideo }) {
     
     if (!mainVideo) return <p>Loading...</p>;
 
