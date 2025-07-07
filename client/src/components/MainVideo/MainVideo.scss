@@ -1,0 +1,23 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as v;
+
+.main-video {
+    width: 100%;
+    height: auto;
+
+    &__player-wrapper {
+        width: 100%;
+        background: #000;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__player {
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+
+        @include m.respond-to(wide) {
+            width: 90%; // Tablet and up
+        }
+    }
+}
