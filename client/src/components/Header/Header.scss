@@ -21,11 +21,16 @@
 
     &__logo {
         width: auto;
-        height: 1.5rem;
+        height: 1.55rem;
         margin-bottom: 0.85rem;
 
         @include m.respond-to(tablet) {
+            height: 1.65rem;
             margin-bottom: 0; // Tablet and up
+        }
+
+        @include m.respond-to(desktop) {
+            height: 1.85rem;
         }
     }
 
