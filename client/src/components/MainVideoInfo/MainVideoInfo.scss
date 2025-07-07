@@ -66,6 +66,7 @@
     &__description {
         font-size: 0.9rem;
         line-height: 1.5;
+        margin-bottom: 0rem;
 
         @include m.respond-to(desktop) {
             font-size: 1rem;
