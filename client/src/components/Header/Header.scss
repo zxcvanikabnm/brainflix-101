@@ -1,5 +1,6 @@
 @use "../../styles/mixins" as m;
 @use "../../styles/variables" as v;
+@use "sass:color";
 
 
 .header {
@@ -106,7 +107,7 @@
         }
 
         &:hover {
-            background-color: darken(#0095ff, 10%);
+            background-color: color.adjust(#0095ff, $lightness: -20%);
         }
     }
 
