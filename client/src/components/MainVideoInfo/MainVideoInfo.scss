@@ -1,0 +1,84 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as v;
+
+.main-video-info {
+    padding: 1.2rem;
+
+    @include m.respond-to(wide) {
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+
+    &__title {
+        font-size: 1.25rem;
+        font-family: v.$font-bold;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+
+        @include m.respond-to(desktop) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__meta {
+        display: flex;
+        margin-bottom: 0.5rem;
+    }
+
+    &__channel {
+        font-size: 1rem;
+        font-family: v.$font-bold;
+        margin: 0;
+        margin-right: 1rem;
+
+        @include m.respond-to(desktop) {
+            font-size: 1.1rem;
+        }
+    }
+
+    &__date {
+        font-family: v.$font-demi;
+        margin: 0;
+        color: #afafaf;
+    }
+
+    &__likes,
+    &__views {
+        display: flex;
+        margin-right: 1rem;
+
+        @include m.respond-to(desktop) {
+            font-size: 0.95rem;
+        }
+    }
+
+    &__stats {
+        display: flex;
+        font-size: 0.85rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #e6e6e6;
+
+        @include m.respond-to(desktop) {
+            font-size: 0.95rem;
+        }
+    }
+
+    &__description {
+        font-size: 0.9rem;
+        line-height: 1.5;
+
+        @include m.respond-to(desktop) {
+            font-size: 1rem;
+        }
+    }
+}
+
+.like-icon,
+.view-icon {
+    width: 0.9rem;
+    margin-right: 0.25rem;
+
+    @include m.respond-to(desktop) {
+        width: 1rem;
+    }
+}
