@@ -6,6 +6,7 @@ import MainVideo from "./components/MainVideo/MainVideo";
 import MainVideoInfo from "./components/MainVideoInfo/MainVideoInfo";
 import Comments from "./components/Comments/Comments";
 import NextVideoList from "./components/NextVideoList/NextVideoList";
+import "./App.scss"; // Import the main styles
 
 function VideoPage() {
     const { id } = useParams(); // Get :id from the URL
@@ -51,11 +52,17 @@ function VideoPage() {
 
     return (
         <>
-            <Header />   
-            <MainVideo mainVideo={mainVideo} /> 
-            <MainVideoInfo mainVideo={mainVideo} /> 
-            <Comments mainVideo={mainVideo} />  
-            <NextVideoList videoList={videoList} mainVideo={mainVideo} />        {/* Pass the mainVideo to Main, Comments, and NextVideoList components */}
+            <Header />
+            <MainVideo mainVideo={mainVideo} />
+            <div className="desktop-layout">
+                <div className="desktop-layout__left">
+                    <MainVideoInfo mainVideo={mainVideo} />
+                    <Comments mainVideo={mainVideo} />
+                </div>
+                <div className="desktop-layout__right">
+                    <NextVideoList videoList={videoList} mainVideo={mainVideo} />
+                </div>
+            </div>
         </>
     );
 }

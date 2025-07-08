@@ -6,7 +6,7 @@
 
 body {
     background-color: #fff;
-    color: #000;
+    color: #323232;
     font-family: v.$font-regular;
     font-size: 16px;
 
@@ -14,10 +14,11 @@ body {
         background-color: red;
     }
     @include m.respond-to(desktop) {
-        background-color: blue;
+        background-color: #fff;
     }
     @include m.respond-to(wide) {
         background-color: green;
     }
 }
+
 

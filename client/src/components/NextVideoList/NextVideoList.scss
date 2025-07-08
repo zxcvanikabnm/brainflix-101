@@ -1,0 +1,96 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as v;
+
+.next-video-list {
+    width: 100%;
+
+    &__title {
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        color: #afafaf;
+        font-family: v.$font-bold;
+        padding: 1.2rem;
+    }
+}
+
+.next-video-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+
+    @include m.respond-to(tablet) {
+        flex-direction: row;
+        padding-left: 1.2rem;
+    }
+
+    @include m.respond-to(desktop) {
+        height: auto;
+        padding-right: 1.2rem;
+    }
+
+    &__thumbnail {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        flex-shrink: 0;
+        margin-bottom: .5rem;
+
+        @include m.respond-to(tablet) {
+            width: 30%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 1.2rem;
+        }
+
+        @include m.respond-to(desktop) {
+            width: 30%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            
+        }
+        
+    }
+
+    &__title {
+        margin: 0.5rem 0;
+        font-family: v.$font-bold;
+
+        @include m.respond-to(tablet) {
+            font-size: 1.25rem;  
+            padding-top: 1.25rem;
+            padding-bottom: 0.5rem;
+        }
+
+        @include m.respond-to(desktop) {
+            padding-top: 0;
+            padding-bottom: 0rem;
+            font-size: 1rem;  
+        }
+
+        @include m.respond-to(wide) {
+            font-size: 1.25rem;  
+            padding-top: 1.25rem;
+            padding-bottom: 0.5rem;
+        }
+    }
+
+    &__channel {
+        margin: 0;
+        font-size: 0.75rem;
+        font-family: v.$font-regular;
+
+        @include m.respond-to(tablet) {
+            font-size: 1rem;  
+        }
+
+        @include m.respond-to(tablet) {
+            font-size: 0.85rem;  
+        }
+    }
+}
