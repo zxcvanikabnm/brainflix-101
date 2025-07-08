@@ -2,7 +2,8 @@ import { Routes, Route, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
+import MainVideo from "./components/MainVideo/MainVideo";
+import MainVideoInfo from "./components/MainVideoInfo/MainVideoInfo";
 import Comments from "./components/Comments/Comments";
 import NextVideoList from "./components/NextVideoList/NextVideoList";
 
@@ -50,10 +51,11 @@ function VideoPage() {
 
     return (
         <>
-            <Header />            {/* Pass the mainVideo to Main, Comments, and NextVideoList components */}
-            <Main mainVideo={mainVideo} />
-            <Comments mainVideo={mainVideo} />
-            <NextVideoList videoList={videoList} mainVideo={mainVideo} />
+            <Header />   
+            <MainVideo mainVideo={mainVideo} /> 
+            <MainVideoInfo mainVideo={mainVideo} /> 
+            <Comments mainVideo={mainVideo} />  
+            <NextVideoList videoList={videoList} mainVideo={mainVideo} />        {/* Pass the mainVideo to Main, Comments, and NextVideoList components */}
         </>
     );
 }
