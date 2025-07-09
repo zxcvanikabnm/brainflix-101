@@ -15,7 +15,8 @@
         }
 
         @include m.respond-to(wide) {
-            padding-left: 5%;            
+            padding-left: 5%; 
+            padding-right: 0;          
         }
         
     }
