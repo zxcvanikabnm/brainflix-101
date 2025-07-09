@@ -1,26 +1,44 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
 import MohanMurugeAvatar from "../../assets/image/Mohan-muruge.jpg";
 import "./CommentInput.scss"; // Assuming you have a CSS file for styling
 
-export default function CommentInput({ onAddComment }) {
-    console.log({ onAddComment });
+export default function CommentInput({ videoId, onAddComment }) {
+    // console.log({ onAddComment });
+    const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
     const [comment, setComment] = useState("");
 
-    const handleSubmit = (e) => {
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     if (!comment.trim()) return;
+
+    //     const newComment = {
+    //         id: Date.now().toString(),
+    //         name: "Test User",
+    //         comment,
+    //         timestamp: Date.now(),
+    //     };
+
+    //     onAddComment(newComment);
+    //     setComment("");
+    // };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!comment.trim()) return;
 
-        const newComment = {
-            id: Date.now().toString(),
-            name: "Test User",
-            comment,
-            timestamp: Date.now(),
-        };
-
-        onAddComment(newComment);
-        setComment("");
+        try {
+            const newComment = {
+                name: "Test User",
+                comment,
+            };
+            onAddComment(newComment); 
+            setComment("");
+        } catch (error) {
+            console.error("Error posting comment:", error);
+        }
     };
 
     return (
