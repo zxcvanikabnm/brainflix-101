@@ -1,12 +1,20 @@
 import React from "react";
+import { useState } from "react";
 import "./Comments.scss"; // Assuming you have a CSS file for styling
+import CommentInput from "../CommentInput/CommentInput"; // Importing the CommentInput component
 
 export default function Comments({ mainVideo }) {
     console.log({ mainVideo });
 
-    if (!mainVideo || !mainVideo.comments) return <p>Loading...</p>;
+    const [comments, setComments] = useState(mainVideo.comments || []);
 
-    const commentList = mainVideo.comments.map((comment) => (
+    const handleAddComment = (newComment) => {
+        setComments([newComment, ...comments]);
+    };
+
+    if (!mainVideo || !comments) return <p>Loading...</p>;
+
+    const commentList = comments.map((comment) => (
         <div key={comment.id} className="comment">
             <div className="comment__avatar"></div>
             <div className="comment__details">
@@ -24,9 +32,10 @@ export default function Comments({ mainVideo }) {
     return (
         <section className="comments">
             <h3 className="comments__heading">
-                {mainVideo.comments.length} Comments
+                {comments.length} Comments
             </h3>
-            {mainVideo.comments.length === 0 ? (
+            <CommentInput onAddComment={handleAddComment} />
+            {comments.length === 0 ? (
                 <p className="comments__none">No comments yet.</p>
             ) : (
                 commentList
