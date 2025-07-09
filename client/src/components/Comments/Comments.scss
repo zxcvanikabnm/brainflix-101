@@ -4,13 +4,13 @@
 .comments {
     width: 100%;
     padding: 1.2rem;
-    padding-top: 0;
     font-size: 0.85rem;
     border-bottom: 1px solid #e1e1e1;
 
-    @include m.respond-to(wide) {
-        padding-right: 5%;
-        padding-left: 5%;
+    @include m.respond-to(desktop) {
+        padding: 0;
+        padding-top: 1.2rem;
+        margin-left: 1.2rem;
     }
 
     &__heading {
@@ -24,6 +24,7 @@
     display: flex;
     padding-top: 1.2rem;
     padding-bottom: 1.2rem;
+    padding-right: 1.2rem;
     border-top: 1px solid #e1e1e1;
     width: 100%;
 

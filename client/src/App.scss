@@ -11,15 +11,22 @@
     &__left {
         @include m.respond-to(desktop) {
             width: 50%;
-            padding: 1.2rem 0;
+            padding: 1.2rem;
         }
+
+        @include m.respond-to(wide) {
+            padding-left: 5%;            
+        }
+        
     }
 
     &__right {
         @include m.respond-to(desktop) {
             width: 50%;
-            // padding: 1.2rem;
             border-left: 1px solid #e6e6e6;
+        }
+        @include m.respond-to(wide) {
+            padding-right: 5%;
         }
     }
 }
