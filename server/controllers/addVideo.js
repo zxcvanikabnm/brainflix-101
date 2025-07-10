@@ -1,40 +1,54 @@
-// Adds a video to the videos.json file
-// This function is used to handle video uploads in development mode.
-const fs = require("fs");
-const path = require("path");
+// controllers/addVideo.js
 const { v4: uuidv4 } = require("uuid");
+const fs = require("fs/promises");
+const path = require("path");
+const DATA_PATH = path.resolve(__dirname, "../data/videos.json");
 
-const filePath = path.join(__dirname, "../data/videos.json");
+/* helper to persist new videos */
+async function saveVideo(video) {
+    // read existing file
+    const raw = await fs.readFile(DATA_PATH, "utf-8");
+    // parse json
+    const list = JSON.parse(raw);
+    // update by adding video to the list of videos
+    list.push(video);
+    // updating json content by adding new data
+    await fs.writeFile(DATA_PATH, JSON.stringify(list, null, 2));
+}
 
-function addVideo(req, res) {
-    // In production, uploads are disabled for security reasons.
-    // Tested and this works. I get the message "Uploads are disabled in production."
-    if (process.env.NODE_ENV === "production") {
-        return res
-            .status(403)
-            .json({ message: "Uploads are disabled in production." });
+module.exports = async (req, res) => {
+    const { title, description, channel, videoUrl, thumbnailUrl } = req.body;
+
+    if (!title || !videoUrl || !thumbnailUrl) {
+        return res.status(400).json({ error: "Missing fields" });
     }
 
-    const videos = JSON.parse(fs.readFileSync(filePath));
+    // const raw = await fs.readFile(DATA_PATH, "utf-8");
+    // const list = JSON.parse(raw);
 
     const newVideo = {
         id: uuidv4(),
-        title: req.body.title,
-        channel: req.body.channel || "Your Channel",
-        image: req.body.image,
-        description: req.body.description || "",
-        views: "0",
-        likes: "0",
-        duration: req.body.duration || "0:00",
-        video: req.body.video || "",
+        title,
+        description,
+        channel,
+        video: videoUrl,
+        image: thumbnailUrl,
+        views: 0,
+        likes: 0,
         timestamp: Date.now(),
         comments: [],
     };
 
-    videos.push(newVideo);
-    fs.writeFileSync(filePath, JSON.stringify(videos, null, 2));
+    // list.push(newVideo);
+    // await fs.writeFile(DATA_PATH, JSON.stringify(list, null, 2));
 
-    res.status(201).json(newVideo);
-}
+    // res.status(201).json(newVideo);
+    try {
+        await saveVideo(newVideo);      // ⬅️ use the helper
+        res.status(201).json(newVideo); // respond to client
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Failed to save video" });
+    }
 
-module.exports = addVideo;
+};
