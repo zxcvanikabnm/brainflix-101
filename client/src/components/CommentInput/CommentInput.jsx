@@ -64,9 +64,11 @@ export default function CommentInput({ videoId, onAddComment }) {
                     onChange={(e) => setComment(e.target.value)}
                     required
                 ></textarea>
-                <button type="submit" className="comment-input__button">
+                {/* <div className="comment-input__button-wrapper"> */}
+                    <button type="submit" className="comment-input__button">
                     COMMENT
-                </button>
+                    </button>
+                {/* </div> */}
             </form>
         </section>
     );

@@ -1,0 +1,76 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as v;
+@use "sass:color";
+
+.comment-input {
+    width: 100%;
+    display: flex;
+
+    @include m.respond-to(desktop) {
+        padding-right: 1.2rem;
+    }
+
+    &__avatar-wrapper {
+        padding-top: 1.5rem;
+    }
+
+    &__avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+    }
+
+    &__form {
+        // width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding-left: 1.2rem;
+        padding-bottom: 1.2rem;
+    }
+
+    &__label {
+        font-family: v.$font-bold;
+        margin-bottom: 0.5rem;
+        color: #afafaf;
+    }
+
+    &__textarea {
+        padding: 0.5rem;
+        border: 1px solid #e1e1e1;
+        font-family: v.$font-demi;
+    }
+
+    // &__button-wrapper {
+    //     width: 100%;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    // }
+
+    &__button {
+        width: 100%;
+        height: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #0095ff;
+        color: #fafafa;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        font-family: v.$font-demi;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        margin-top: 0.5rem;
+        // max-width: 500px;
+
+        @include m.respond-to(tablet) {
+            width: auto; // Tablet and up
+        }
+
+        &:hover {
+            background-color: color.adjust(#0095ff, $lightness: -20%);
+        }
+    }
+}
