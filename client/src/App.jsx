@@ -1,4 +1,10 @@
-import { Routes, Route, useParams, useNavigate } from "react-router-dom";
+import {
+    Routes,
+    Route,
+    useParams,
+    useNavigate,
+    Navigate,
+} from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "./components/Header/Header";
@@ -6,6 +12,7 @@ import MainVideo from "./components/MainVideo/MainVideo";
 import MainVideoInfo from "./components/MainVideoInfo/MainVideoInfo";
 import Comments from "./components/Comments/Comments";
 import NextVideoList from "./components/NextVideoList/NextVideoList";
+import Upload from "./components/Upload/Upload";
 import "./App.scss"; // Import the main styles
 
 function VideoPage() {
@@ -52,7 +59,7 @@ function VideoPage() {
 
     return (
         <>
-            <Header />
+            {/* <Header /> */}
             <MainVideo mainVideo={mainVideo} />
             <div className="desktop-layout">
                 <div className="desktop-layout__left">
@@ -60,7 +67,10 @@ function VideoPage() {
                     <Comments mainVideo={mainVideo} />
                 </div>
                 <div className="desktop-layout__right">
-                    <NextVideoList videoList={videoList} mainVideo={mainVideo} />
+                    <NextVideoList
+                        videoList={videoList}
+                        mainVideo={mainVideo}
+                    />
                 </div>
             </div>
         </>
@@ -69,9 +79,21 @@ function VideoPage() {
 
 export default function App() {
     return (
+        <>
+        <Header /> {/* shows on every route */}
         <Routes>
-            <Route path="/" element={<VideoPage />} />
+            {/* Redirect plain "/" to the list of videos */}
+            <Route path="/" element={<Navigate to="/videos" replace />} />
+
+            {/* List view (first video auto-loads inside VideoPage) */}
+            <Route path="/videos" element={<VideoPage />} />
+
+            {/* Individual video by ID */}
             <Route path="/videos/:id" element={<VideoPage />} />
+
+            {/* Upload page */}
+            <Route path="/upload" element={<Upload />} />
         </Routes>
+        </>
     );
 }
