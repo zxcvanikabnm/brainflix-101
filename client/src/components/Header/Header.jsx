@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo/Logo-brainflix.svg";
 import Avatar from "../../assets/image/Mohan-muruge.jpg";
-import UploadIcon from "../../assets/icon/svg/Icon-upload.svg";
-import SearchIcon from "../../assets/icon/svg/Icon-search.svg";
+import UploadIcon from "../../assets/icon/SVG/Icon-upload.svg";
+import SearchIcon from "../../assets/icon/SVG/Icon-search.svg";
 import "./Header.scss"; // 🔁 Regular SCSS import (not modules)
 
 export default function Header() {

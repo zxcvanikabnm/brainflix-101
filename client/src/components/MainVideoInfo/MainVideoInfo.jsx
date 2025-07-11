@@ -1,6 +1,6 @@
 import React from "react";
-import LikeIcon from "../../assets/icon/svg/Icon-likes.svg";
-import ViewIcon from "../../assets/icon/svg/Icon-views.svg";
+import LikeIcon from "../../assets/icon/SVG/Icon-likes.svg";
+import ViewIcon from "../../assets/icon/SVG/Icon-views.svg";
 import "./MainVideoInfo.scss";
 
 export default function MainVideoInfo({ mainVideo }) {
