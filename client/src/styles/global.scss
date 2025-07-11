@@ -9,16 +9,6 @@ body {
     color: #323232;
     font-family: v.$font-regular;
     font-size: 16px;
-
-    @include m.respond-to(tablet) {
-        background-color: red;
-    }
-    @include m.respond-to(desktop) {
-        background-color: #fff;
-    }
-    @include m.respond-to(wide) {
-        background-color: green;
-    }
 }
 
 
