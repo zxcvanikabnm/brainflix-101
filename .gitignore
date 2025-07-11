@@ -13,8 +13,13 @@ client/node_modules/
 server/node_modules/
 
 # Env files
+# Ignore real env files
 .env
-.env.*    # Optional: if you use .env.development, .env.production
+.env.local
+.env.*.local
+
+# BUT don't ignore example files
+!.env.example
 
 # Build output
 dist
