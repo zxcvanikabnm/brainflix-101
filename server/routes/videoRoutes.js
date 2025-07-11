@@ -14,11 +14,14 @@ const addVideo = require("../controllers/addVideo");
 const getComments = require("../controllers/getComments");
 const addComment = require("../controllers/addComment");
 
-router.get("/", getVideoList);
-router.get("/:id", getMainVideo);
-router.post("/", addVideo);
 router.get("/:id/comments", getComments);
 router.post("/:id/comments", addComment);
+
+router.get("/:id", getMainVideo);
+
+router.get("/", getVideoList);
+router.post("/", addVideo);
+
 
 
 module.exports = router;
