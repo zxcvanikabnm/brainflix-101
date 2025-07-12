@@ -80,20 +80,20 @@ function VideoPage() {
 export default function App() {
     return (
         <>
-        <Header /> {/* shows on every route */}
-        <Routes>
-            {/* Redirect plain "/" to the list of videos */}
-            <Route path="/" element={<Navigate to="/videos" replace />} />
+            <Header /> {/* shows on every route */}
+            <Routes>
+                {/* Redirect plain "/" to the list of videos */}
+                <Route path="/" element={<Navigate to="/videos" replace />} />
 
-            {/* List view (first video auto-loads inside VideoPage) */}
-            <Route path="/videos" element={<VideoPage />} />
+                {/* List view (first video auto-loads inside VideoPage) */}
+                <Route path="/videos" element={<VideoPage />} />
 
-            {/* Individual video by ID */}
-            <Route path="/videos/:id" element={<VideoPage />} />
+                {/* Individual video by ID */}
+                <Route path="/videos/:id" element={<VideoPage />} />
 
-            {/* Upload page */}
-            <Route path="/upload" element={<Upload />} />
-        </Routes>
+                {/* Upload page */}
+                <Route path="/upload" element={<Upload />} />
+            </Routes>
         </>
     );
 }

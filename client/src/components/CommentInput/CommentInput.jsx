@@ -5,25 +5,7 @@ import MohanMurugeAvatar from "../../assets/image/Mohan-muruge.jpg";
 import "./CommentInput.scss"; // Assuming you have a CSS file for styling
 
 export default function CommentInput({ videoId, onAddComment }) {
-    // console.log({ onAddComment });
-    const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-
     const [comment, setComment] = useState("");
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     if (!comment.trim()) return;
-
-    //     const newComment = {
-    //         id: Date.now().toString(),
-    //         name: "Test User",
-    //         comment,
-    //         timestamp: Date.now(),
-    //     };
-
-    //     onAddComment(newComment);
-    //     setComment("");
-    // };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -34,7 +16,7 @@ export default function CommentInput({ videoId, onAddComment }) {
                 name: "Test User",
                 comment,
             };
-            onAddComment(newComment); 
+            onAddComment(newComment);
             setComment("");
         } catch (error) {
             console.error("Error posting comment:", error);
@@ -65,9 +47,9 @@ export default function CommentInput({ videoId, onAddComment }) {
                     required
                 ></textarea>
                 {/* <div className="comment-input__button-wrapper"> */}
-                    <button type="submit" className="comment-input__button">
+                <button type="submit" className="comment-input__button">
                     COMMENT
-                    </button>
+                </button>
                 {/* </div> */}
             </form>
         </section>
