@@ -1,6 +1,6 @@
 # 🎬 BrainFlix 101
 
-A full-stack YouTube-style video app built with **React**, **Express**, **MongoDB**, and **SASS**. Inspired by the BrainStation project brief, this version was upgraded with modern tools, dynamic routing, comment functionality, and full deployment.
+A full-stack YouTube-style video app built with **React**, **Express**, **MongoDB**, and **SASS**. Inspired by the BrainStation project brief, this version was upgraded with modern tools, dynamic routing, comment functionality, mongodb atlas and full deployment.
 
 Live Demo: https://anikacustod.io/brainflix-101/
 
