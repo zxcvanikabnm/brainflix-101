@@ -66,6 +66,7 @@ http://localhost:5173
 - Nginx used to reverse-proxy both backend and frontend
 - Managed via PM2
 - Domain + SSL handled through Cloudflare
+- Backend API: Deployed privately to the same DigitalOcean droplet
 
 - Live at: https://anikacustod.io/brainflix-101/
 
