@@ -1,6 +1,6 @@
 # 🎬 BrainFlix 101
 
-A full-stack YouTube-style video app built with **React**, **Express**, **MongoDB**, and **SASS**. Inspired by the BrainStation project brief, this version was upgraded with modern tools, dynamic routing, comment functionality, mongodb atlas and full deployment.
+A full-stack YouTube-style video app built with **React**, **Express** and **SASS**. Inspired by the BrainStation project brief, this version was upgraded with modern tools, dynamic routing, comment functionality and full deployment.
 
 Live Demo: https://anikacustod.io/brainflix-101/
 
@@ -9,7 +9,7 @@ Live Demo: https://anikacustod.io/brainflix-101/
 ## ⚙️ Tech Stack
 
 - ⚛️ **Frontend**: React 19 (Vite), React Router, Axios, SASS
-- 🧠 **Backend**: Express.js, Mongoose, MongoDB (Atlas), dotenv
+- 🧠 **Backend**: Express.js, dotenv
 - 🧪 **Testing**: Postman for API testing
 - 🚀 **Deployment**: DigitalOcean droplet (Nginx + PM2), Cloudflare for DNS/SSL
 
@@ -45,7 +45,6 @@ Live Demo: https://anikacustod.io/brainflix-101/
 
 ### 3. Create a .env File in server/
 - PORT=8080
-- MONGO_URI=your_mongodb_atlas_connection_string
 
 ### 4. Start the App
 # In one terminal: start backend
